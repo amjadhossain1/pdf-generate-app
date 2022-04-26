@@ -45,117 +45,148 @@ class DataComponent extends React.Component {
       phoneNo,
       plan,
     } = this.props.data;
-    // console.log("props: ", id, this.props.data);
 
     return (
-      <Container className="p-3">
+      <Container className="">
         <Image
           alt={"logo"}
           src={logo}
           className="logo"
-          width={250}
+          width={300}
           height={90}
         />
         <h2 className="mb-4 text-center">TRAVEL INSURANCE CERTIFICATE</h2>
-        <div className="p-3">
+        <div className="ms-2">
           <div className="row">
-            <div className=" col-3 fw-bold  p-0 m-1">POLICY NO: {id}</div>
-            <div className="col-3 fw-bold p-0 m-1">ISSUE DATE: {issueDate}</div>
-            <div className=" col-3 fw-bold p-0 m-1">PLAN: {plan}</div>
-            <div className=" col-2 fw-bold p-0 m-1">AGENT: M M TRADE</div>
+            <div className="col-3 fw-bold  p-0">
+              {" "}
+              <div className="p-1"> POLICY NO: {id}</div>{" "}
+            </div>
+            <div className="col-3 fw-bold p-0 ">
+              {" "}
+              <div className="p-1">ISSUE DATE: {issueDate}</div>{" "}
+            </div>
+            <div className="col-3 fw-bold p-0">
+              <div className="p-1">PLAN: {plan}</div>
+            </div>
+            <div className="col-3 fw-bold p-0">
+              <div className="p-1"> AGENT: M M TRADE</div>
+            </div>
           </div>
           {/* data */}
           <div className="row">
-            <div className="col-3 bg-secondary bg-opacity-10 p-0 m-1 ">
-              DESTINATION
+            <div className="col-3 p-0">
+              <div className="bg-secondary bg-opacity-10 p-1 m-1">
+                DESTINATION
+              </div>
             </div>
-            <div className="col-3 mx-1 px-1">
-              <div className="row">
+            <div className="col-3 px-2">
+              <div className="row px-1">
                 <div className="col-6 p-0">
-                  <div className="bg-secondary bg-opacity-10 p-0 m-1">FROM</div>
+                  <div className="bg-secondary bg-opacity-10 m-1 p-1">FROM</div>
                 </div>
                 <div className="col-6 p-0">
-                  <div className="bg-secondary bg-opacity-10 p-0 m-1">TO</div>
+                  <div className="bg-secondary bg-opacity-10 m-1 p-1">TO</div>
                 </div>
               </div>
             </div>
 
-            <div className=" col-3 bg-secondary bg-opacity-10 p-0 m-1">
-              {" "}
-              COUNTRY OF RESIDENCE
+            <div className="col-3 p-0">
+              <div className="bg-secondary bg-opacity-10 p-1 m-1">
+                {" "}
+                COUNTRY OF RESIDENCE{" "}
+              </div>{" "}
             </div>
-            <div className=" col-2 bg-secondary bg-opacity-10 p-0 m-1">
+            <div className="col-3 p-0">
               {" "}
-              TELEPHONE NO
+              <div className="bg-secondary bg-opacity-10 p-1 m-1">
+                {" "}
+                TELEPHONE NO
+              </div>
             </div>
           </div>
           {/* data2 */}
           <div className="row">
-            <div className=" col-3 bg-secondary bg-opacity-10 p-0 m-1">
-              {" "}
-              {destination}
+            <div className=" col-3 p-0">
+              <div className="bg-secondary bg-opacity-10 p-1 m-1">
+                {" "}
+                {destination}
+              </div>
             </div>
-            <div className="col-3 mx-1 px-1">
-              <div className="row">
+            <div className="col-3 px-2">
+              <div className="row px-1">
                 <div className="col-6 p-0">
-                  <div className="bg-secondary bg-opacity-10 p-0 m-1">
+                  <div className="bg-secondary bg-opacity-10 p-1 m-1">
                     {" "}
                     {fromDate}{" "}
                   </div>
                 </div>
                 <div className="col-6 p-0">
-                  <div className="bg-secondary bg-opacity-10 p-0 m-1">
-                    {" "}
+                  <div className="bg-secondary bg-opacity-10 p-1 m-1">
                     {receiveDate}
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className=" col-3 bg-secondary bg-opacity-10 p-0 m-1">
-              {country}
+            <div className="col-3 p-0">
+              <div className="bg-secondary bg-opacity-10 p-1 m-1">
+                {" "}
+                {country}
+              </div>
             </div>
-            <div className=" col-2 bg-secondary bg-opacity-10 p-0 m-1">
-              {phoneNo}
+            <div className="col-3 p-0">
+              <div className="bg-secondary bg-opacity-10 p-1 m-1">
+                {" "}
+                {phoneNo}
+              </div>
             </div>
           </div>
           {/* data3 */}
           <div className="row mt-2">
-            <div className=" col-3 bg-secondary bg-opacity-10 p-0 m-1">
-              {" "}
-              FULL NAME
+            <div className="col-3 p-0">
+              <div className="bg-secondary bg-opacity-10 p-1 m-1">
+                {" "}
+                FULL NAME
+              </div>
             </div>
-            <div className=" col-3 bg-secondary bg-opacity-10 p-0 m-1">
-              {" "}
-              DATE OF BIRTH
+            <div className="col-3 p-0">
+              <div className="bg-secondary bg-opacity-10 p-1 m-1">
+                {" "}
+                DATE OF BIRTH
+              </div>
             </div>
-            <div className=" col-3 bg-secondary bg-opacity-10 p-0 m-1">
-              {" "}
-              PASSPORT NUMBER
+            <div className="col-3 p-0">
+              <div className="bg-secondary bg-opacity-10 p-1 m-1">
+                {" "}
+                PASSPORT NUMBER
+              </div>
             </div>
           </div>
           {/* data4 */}
           <div className="row">
-            <div className=" col-3 bg-secondary bg-opacity-10 p-0 m-1">
-              {" "}
-              {name}
+            <div className="col-3 p-0">
+              <div className="bg-secondary bg-opacity-10 p-1 m-1"> {name}</div>
             </div>
-            <div className=" col-3 bg-secondary bg-opacity-10 p-0 m-1">
-              {" "}
-              {dateOfBirth}
+            <div className="col-3 p-0">
+              <div className="bg-secondary bg-opacity-10 p-1 m-1">
+                {dateOfBirth}
+              </div>
             </div>
-            <div className=" col-3 bg-secondary bg-opacity-10 p-0 m-1">
-              {" "}
-              {passportNo}
+            <div className="col-3 p-0">
+              <div className="bg-secondary bg-opacity-10 p-1 m-1">
+                {" "}
+                {passportNo}
+              </div>
             </div>
           </div>
         </div>
 
-        <p className="text-secondary fst-italic my-3">
+        <p className="text-secondary fst-italic my-1">
           Contrary to any stipulations stated in the General Conditions, the
           plan subscribed to under this Letter of Confirmation, covera
-          exclusively the below mentioned benefits. <br /> Limitations &
-          Excesses shown in the tab;e hereafter. <br /> The General Conditions
+          exclusively the below mentioned benefits. Limitations &
+          Excesses shown in the tab;e hereafter.  The General Conditions
           form an integral part of this letter of Confirmation. <br /> For more
           info/modification regarding your policy, kindly do not hesitate to
           contact your authorized agent or e-mail us on
@@ -163,10 +194,10 @@ class DataComponent extends React.Component {
         </p>
 
         <Image
-          className="my-2"
+          className=""
           alt="footer"
           src={mainSection}
-          width={1100}
+          width={"100%"}
           height={600}
         />
 

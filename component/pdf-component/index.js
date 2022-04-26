@@ -4,7 +4,7 @@ import ReactToPrint from "react-to-print";
 import DataComponent from "../data-component";
 class PdfComponent extends React.Component {
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     const { dataRes, setDataRes } = this.props;
     return (
       <div>
@@ -15,12 +15,13 @@ class PdfComponent extends React.Component {
         <ReactToPrint
           content={() => this.componentRef}
           trigger={() => (
-            <button
-              onClick={() => setDataRes(null)}
-              className="btn btn-outline-primary fw-bold w-100 py-3"
+            <div
+              href=""
+              className="btn btn-primary fw-bold w-100 py-3 text-decoration-none"
+              passHref
             >
-              <Link className='text-decoration-none' href='/'>Download to PDF!</Link>
-            </button>
+              Download to PDF!
+            </div>
           )}
         />
       </div>
