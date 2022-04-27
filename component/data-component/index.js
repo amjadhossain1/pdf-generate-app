@@ -48,9 +48,7 @@ class DataComponent extends React.Component {
 
     const qrValue = `Name: ${name},
     Passport Number: ${passportNo},
-    Phone Number: ${phoneNo},`
-      
-  
+    Phone Number: ${phoneNo},`;
 
     return (
       <Container className="my-3">
@@ -60,6 +58,7 @@ class DataComponent extends React.Component {
           className="logo"
           width={300}
           height={95}
+          quality={100}
         />
         <h2 className="mb-4 text-center">TRAVEL INSURANCE CERTIFICATE</h2>
         <div className="mx-2">
@@ -204,6 +203,7 @@ class DataComponent extends React.Component {
           src={mainSection}
           width={1200}
           height={600}
+          quality={100}
         />
 
         <div className="my-2">
@@ -216,7 +216,7 @@ class DataComponent extends React.Component {
             letter
           </h5>
         </div>
-        <Image className="mt-5" alt="footer" src={footer} />
+        <Image className="mt-5" alt="footer" src={footer} quality={100} />
       </Container>
     );
   }
