@@ -39,7 +39,7 @@ const FormSection = (props) => {
 
     setDataRes(finalData);
 
-    router.push("/data");
+    // router.push("/data");
   };
   // console.log("router: ", router);
 

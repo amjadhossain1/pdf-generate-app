@@ -46,17 +46,23 @@ class DataComponent extends React.Component {
       plan,
     } = this.props.data;
 
+    const qrValue = `Name: ${name},
+    Passport Number: ${passportNo},
+    Phone Number: ${phoneNo},`
+      
+  
+
     return (
-      <Container className="">
+      <Container className="my-3">
         <Image
           alt={"logo"}
           src={logo}
           className="logo"
           width={300}
-          height={90}
+          height={95}
         />
         <h2 className="mb-4 text-center">TRAVEL INSURANCE CERTIFICATE</h2>
-        <div className="ms-2">
+        <div className="mx-2">
           <div className="row">
             <div className="col-3 fw-bold  p-0">
               {" "}
@@ -185,28 +191,27 @@ class DataComponent extends React.Component {
         <p className="text-secondary fst-italic my-1">
           Contrary to any stipulations stated in the General Conditions, the
           plan subscribed to under this Letter of Confirmation, covera
-          exclusively the below mentioned benefits. Limitations &
-          Excesses shown in the tab;e hereafter.  The General Conditions
-          form an integral part of this letter of Confirmation. <br /> For more
-          info/modification regarding your policy, kindly do not hesitate to
-          contact your authorized agent or e-mail us on
-          enquiry@wecare-center.com{" "}
+          exclusively the below mentioned benefits. Limitations & Excesses shown
+          in the tab;e hereafter. The General Conditions form an integral part
+          of this letter of Confirmation. <br /> For more info/modification
+          regarding your policy, kindly do not hesitate to contact your
+          authorized agent or e-mail us on enquiry@wecare-center.com{" "}
         </p>
 
         <Image
-          className=""
+          className="my-2 pb-2"
           alt="footer"
           src={mainSection}
-          width={"100%"}
+          width={1200}
           height={600}
         />
 
         <div className="my-2">
           <h3 className="font-weight-bold mt-2">Confirmation Code</h3>
           <div className="">
-            <QRCode className="m-3" value="amjad" />
+            <QRCode className="m-3" value={qrValue} />
           </div>
-          <h5 className="font-italic mb-5 ">
+          <h5 className="font-italic mb-5 pb-3">
             For offcial use, scan the above code to validate this confirmation
             letter
           </h5>
