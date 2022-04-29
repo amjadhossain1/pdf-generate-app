@@ -1,12 +1,29 @@
 import { useForm } from "react-hook-form";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
 const FormSection = (props) => {
   const { dataRes, setDataRes } = props;
+  const [fromDate, setFromDate] = useState();
+  const [toDate, setToDate] = useState();
   const { register, handleSubmit, errors, reset } = useForm();
-  const router = useRouter();
+
+  const [date, setDate] = useState();
+
+  const handleToDate = (from) => {
+    const dateObj = new Date(from);
+    const month = dateObj.getMonth() + 2;
+    const day = dateObj.getDate();
+    const year = dateObj.getFullYear();
+    const newdate = month + "/" + day + "/" + year;
+    return newdate;
+  };
+
+  const onSetDate = (event) => {
+    const newD = handleToDate(event.target.value);
+    setDate(new Date(newD));
+  };
 
   const onSubmit = (data) => {
     const {
@@ -20,7 +37,9 @@ const FormSection = (props) => {
       phoneNo,
       plan,
     } = data;
-    const idGenarete = Math.floor(Math.random() * 1000000 + 1);
+
+    const idGenarete = ` WC - ${Math.floor(Math.random() * 1000000 + 1)}`;
+
     const date = new Date();
 
     const finalData = {
@@ -30,18 +49,14 @@ const FormSection = (props) => {
       country,
       name,
       fromDate,
-      receiveDate,
+      receiveDate: handleToDate(fromDate),
       dateOfBirth,
       passportNo,
       phoneNo,
       plan,
     };
-
     setDataRes(finalData);
-
-    // router.push("/data");
   };
-  // console.log("router: ", router);
 
   return (
     <Container>
@@ -55,7 +70,7 @@ const FormSection = (props) => {
 
       <Row className="mb-5">
         <Col className="mb-5" md={{ span: 6, offset: 3 }}>
-          <Form onSubmit={handleSubmit(onSubmit)} className="w-100">
+          <Form onSubmit={handleSubmit(onSubmit)} className="">
             <Form.Group className="mb-1" controlId="destination">
               <Form.Label>Enter destination</Form.Label>
               <Form.Control
@@ -91,21 +106,25 @@ const FormSection = (props) => {
             <Row className="mb-1">
               <Col className="mb-1">
                 <Form.Group controlId="fromDate">
-                  <Form.Label>Enter date from </Form.Label>
+                  <Form.Label>Enter From date </Form.Label>
                   <Form.Control
                     type="date"
                     name="date"
                     placeholder="Enter date from "
+                    // value={fromDate}
                     {...register("fromDate", { required: false })}
+                    onChange={onSetDate}
                   />
                 </Form.Group>
               </Col>
               <Col>
                 <Form.Group controlId="receiveDate">
-                  <Form.Label>Enter Receive Date to</Form.Label>
+                  <Form.Label>Enter Receive Date </Form.Label>
+
                   <Form.Control
                     type="date"
                     name="date"
+                    value={date?.toLocaleDateString("en-CA")}
                     placeholder="Enter Receive Date to"
                     {...register("receiveDate", { required: false })}
                   />
@@ -124,7 +143,7 @@ const FormSection = (props) => {
                 </Form.Group>
               </Col>
             </Row>
-            <Row className="mb-1">
+            <Row className="mb-4">
               <Col>
                 {" "}
                 <Form.Group controlId="passportNo">
@@ -167,7 +186,6 @@ const FormSection = (props) => {
             <Button
               className="w-100 fw-bold"
               variant="warning"
-              block
               type="submit"
             >
               Generate PDF

@@ -1,10 +1,9 @@
-import Link from "next/link";
 import React from "react";
 import ReactToPrint from "react-to-print";
 import DataComponent from "../data-component";
+
 class PdfComponent extends React.Component {
   render() {
-    // console.log(this.props);
     const { dataRes, setDataRes } = this.props;
     return (
       <div>
@@ -13,13 +12,10 @@ class PdfComponent extends React.Component {
           ref={(response) => (this.componentRef = response)}
         />
         <ReactToPrint
+          documentTitle={`${dataRes.name.toUpperCase()} INSURANCE`}
           content={() => this.componentRef}
           trigger={() => (
-            <div
-              href=""
-              className="btn btn-primary fw-bold w-100 py-3 text-decoration-none"
-              passHref
-            >
+            <div className="btn btn-primary fw-bold w-100 py-3 text-decoration-none">
               Download to PDF!
             </div>
           )}

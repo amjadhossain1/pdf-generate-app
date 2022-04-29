@@ -3,34 +3,10 @@ import { Container } from "react-bootstrap";
 import Image from "next/image";
 import logo from "../../public/images/logo.PNG";
 import mainSection from "../../public/images/main-section.PNG";
-import section2 from "../../public/images/work-section2.PNG";
 import footer from "../../public/images/work-footer.PNG";
 import QRCode from "react-qr-code";
 
-const thStyle = {
-  fontFamily: "Anton",
-  fontWeight: "normal",
-  fontStyle: "normal",
-};
-
 class DataComponent extends React.Component {
-  constructor() {
-    super();
-    // this.state = {
-    //   country: "Bangladesh",
-    //   dateOfBirth: "2022-04-17",
-    //   destination: "Saudi",
-    //   fromDate: "2022-04-19",
-    //   id: 452178,
-    //   issueDate: "4/13/2022",
-    //   name: "amjad hosain",
-    //   passportNo: "1234465778980",
-    //   phoneNo: "23w4we5567890",
-    //   plan: "Covid Plan (KSA)",
-    //   receiveDate: "2022-04-19",
-    // };
-  }
-
   render() {
     const {
       id,
@@ -46,65 +22,86 @@ class DataComponent extends React.Component {
       plan,
     } = this.props.data;
 
-    const qrValue = `Name: ${name},
-    Passport Number: ${passportNo},
-    Phone Number: ${phoneNo},`;
+    const handleFormatDate = (date) => {
+      const dateObj = new Date(date);
+      const month = dateObj.getMonth() + 1;
+      const day = dateObj.getDate();
+      const year = dateObj.getFullYear();
+      const newdate = String(day + "/" + month + "/" + year);
+      return newdate;
+    };
+
+    const qrValue = `Policy Number:  ${id}, Issue Date:  ${issueDate},  Plan: ${plan},  Destination: ${destination},  From: ${fromDate},  To: ${receiveDate}, Full Name: ${name}, Date of Birth: ${dateOfBirth},
+    Passport Number: ${passportNo}`;
 
     return (
-      <Container className="my-3">
+      <Container style={{ padding: "20px 120px" }} className="">
         <Image
           alt={"logo"}
           src={logo}
           className="logo"
-          width={300}
-          height={95}
+          width={250}
+          height={80}
           quality={100}
         />
         <h2 className="mb-4 text-center">TRAVEL INSURANCE CERTIFICATE</h2>
         <div className="mx-2">
           <div className="row">
-            <div className="col-3 fw-bold  p-0">
+            <div className="col-3 p-0">
               {" "}
-              <div className="p-1"> POLICY NO: {id}</div>{" "}
+              <div className="p-1">
+                {" "}
+                <span className="fw-bold">POLICY NO:</span>
+                {id}
+              </div>{" "}
             </div>
-            <div className="col-3 fw-bold p-0 ">
+            <div className="col-3">
               {" "}
-              <div className="p-1">ISSUE DATE: {issueDate}</div>{" "}
+              <div className="p-1">
+                {" "}
+                <span className="fw-bold">ISSUE DATE:</span> { handleFormatDate(issueDate)}
+              </div>{" "}
             </div>
-            <div className="col-3 fw-bold p-0">
-              <div className="p-1">PLAN: {plan}</div>
+            <div className="col-3 p-0 margin-minus" >
+              <div className="p-1">
+                {" "}
+                <span className="fw-bold">PLAN:</span> {plan}
+              </div>
             </div>
-            <div className="col-3 fw-bold p-0">
-              <div className="p-1"> AGENT: M M TRADE</div>
+            <div className="col-3 p-0">
+              <div className="p-1">
+                {" "}
+                <span className="fw-bold"> AGENT:</span> M M TRADE
+              </div>
             </div>
           </div>
           {/* data */}
           <div className="row">
             <div className="col-3 p-0">
-              <div className="bg-secondary bg-opacity-10 p-1 m-1">
+              <div className="bg-secondary bg-opacity-10 p-1 mx-1">
                 DESTINATION
               </div>
             </div>
             <div className="col-3 px-2">
               <div className="row px-1">
                 <div className="col-6 p-0">
-                  <div className="bg-secondary bg-opacity-10 m-1 p-1">FROM</div>
+                  <div className="bg-secondary bg-opacity-10 mx-1 p-1">FROM</div>
                 </div>
                 <div className="col-6 p-0">
-                  <div className="bg-secondary bg-opacity-10 m-1 p-1">TO</div>
+                  <div className="bg-secondary bg-opacity-10 mx-1 p-1">TO</div>
                 </div>
               </div>
             </div>
 
             <div className="col-3 p-0">
-              <div className="bg-secondary bg-opacity-10 p-1 m-1">
+              <div className="bg-secondary bg-opacity-10 p-1 mx-1">
                 {" "}
                 COUNTRY OF RESIDENCE{" "}
               </div>{" "}
             </div>
             <div className="col-3 p-0">
               {" "}
-              <div className="bg-secondary bg-opacity-10 p-1 m-1">
+              <div className="bg-secondary bg-opacity-10 p-1 mx-1 mb-1">
                 {" "}
                 TELEPHONE NO
               </div>
@@ -113,37 +110,33 @@ class DataComponent extends React.Component {
           {/* data2 */}
           <div className="row">
             <div className=" col-3 p-0">
-              <div className="bg-secondary bg-opacity-10 p-1 m-1">
-                {" "}
-                {destination}
+              <div className="bg-secondary bg-opacity-10 p-1 mx-1">
+                <span className="fw-bold"> {destination}</span>
               </div>
             </div>
             <div className="col-3 px-2">
               <div className="row px-1">
                 <div className="col-6 p-0">
-                  <div className="bg-secondary bg-opacity-10 p-1 m-1">
-                    {" "}
-                    {fromDate}{" "}
+                  <div className="bg-secondary bg-opacity-10 p-1 mx-1">
+                    <span className="fw-bold"> { handleFormatDate(fromDate)}</span>
                   </div>
                 </div>
                 <div className="col-6 p-0">
-                  <div className="bg-secondary bg-opacity-10 p-1 m-1">
-                    {receiveDate}
+                  <div className="bg-secondary bg-opacity-10 p-1 mx-1">
+                    <span className="fw-bold"> {handleFormatDate(receiveDate)} </span>
                   </div>
                 </div>
               </div>
             </div>
 
             <div className="col-3 p-0">
-              <div className="bg-secondary bg-opacity-10 p-1 m-1">
-                {" "}
-                {country}
+              <div className="bg-secondary bg-opacity-10 p-1 mx-1">
+                <span className="fw-bold"> {country} </span>
               </div>
             </div>
             <div className="col-3 p-0">
-              <div className="bg-secondary bg-opacity-10 p-1 m-1">
-                {" "}
-                {phoneNo}
+              <div className="bg-secondary bg-opacity-10 p-1 mx-1">
+                <span className="fw-bold"> {phoneNo} </span>
               </div>
             </div>
           </div>
@@ -171,23 +164,25 @@ class DataComponent extends React.Component {
           {/* data4 */}
           <div className="row">
             <div className="col-3 p-0">
-              <div className="bg-secondary bg-opacity-10 p-1 m-1"> {name}</div>
-            </div>
-            <div className="col-3 p-0">
-              <div className="bg-secondary bg-opacity-10 p-1 m-1">
-                {dateOfBirth}
+              <div className="bg-secondary bg-opacity-10 p-1 mx-1">
+                {" "}
+                <span className="fw-bold"> {name}</span>
               </div>
             </div>
             <div className="col-3 p-0">
-              <div className="bg-secondary bg-opacity-10 p-1 m-1">
-                {" "}
-                {passportNo}
+              <div className="bg-secondary bg-opacity-10 p-1 mx-1">
+                <span className="fw-bold"> {handleFormatDate(dateOfBirth)} </span>
+              </div>
+            </div>
+            <div className="col-3 p-0">
+              <div className="bg-secondary bg-opacity-10 p-1 mx-1">
+                <span className="fw-bold"> {passportNo} </span>
               </div>
             </div>
           </div>
         </div>
 
-        <p className="text-secondary fst-italic my-1">
+        <p className="text-secondary fst-italic mt-3 mb-2">
           Contrary to any stipulations stated in the General Conditions, the
           plan subscribed to under this Letter of Confirmation, covera
           exclusively the below mentioned benefits. Limitations & Excesses shown
@@ -207,11 +202,11 @@ class DataComponent extends React.Component {
         />
 
         <div className="my-2">
-          <h3 className="font-weight-bold mt-2">Confirmation Code</h3>
+          <h3 className="font-weight-bold mt-2 mb-0">Confirmation Code</h3>
           <div className="">
-            <QRCode className="m-3" value={qrValue} />
+            <QRCode size={160} className="m-2" value={qrValue} />
           </div>
-          <h5 className="font-italic mb-5 pb-3">
+          <h5 className="fst-italic  mb-5 pb-3">
             For offcial use, scan the above code to validate this confirmation
             letter
           </h5>
