@@ -1,12 +1,10 @@
 import { useForm } from "react-hook-form";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import React, { useEffect, useState } from "react";
-import { useRouter } from "next/router";
+
 
 const FormSection = (props) => {
   const { dataRes, setDataRes } = props;
-  const [fromDate, setFromDate] = useState();
-  const [toDate, setToDate] = useState();
   const { register, handleSubmit, errors, reset } = useForm();
 
   const [date, setDate] = useState();
@@ -62,7 +60,7 @@ const FormSection = (props) => {
     <Container>
       <Row>
         <Col>
-          <h3 className="text-center my-5 jumbotron">
+          <h3 className="text-center my-4">
             Travel insurance certificate
           </h3>
         </Col>
@@ -111,7 +109,6 @@ const FormSection = (props) => {
                     type="date"
                     name="date"
                     placeholder="Enter date from "
-                    // value={fromDate}
                     {...register("fromDate", { required: false })}
                     onChange={onSetDate}
                   />
