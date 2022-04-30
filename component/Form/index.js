@@ -1,12 +1,11 @@
 import { useForm } from "react-hook-form";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 
 const FormSection = (props) => {
   const { dataRes, setDataRes } = props;
   const { register, handleSubmit, errors, reset } = useForm();
-
   const [date, setDate] = useState();
 
   const handleToDate = (from) => {
@@ -14,13 +13,13 @@ const FormSection = (props) => {
     const month = dateObj.getMonth() + 2;
     const day = dateObj.getDate();
     const year = dateObj.getFullYear();
-    const newdate = month + "/" + day + "/" + year;
-    return newdate;
+    const newToDate = month + "/" + day + "/" + year;
+    return newToDate;
   };
 
   const onSetDate = (event) => {
-    const newD = handleToDate(event.target.value);
-    setDate(new Date(newD));
+    const newToDate = handleToDate(event.target.value);
+    setDate(new Date(newToDate));
   };
 
   const onSubmit = (data) => {
@@ -37,7 +36,6 @@ const FormSection = (props) => {
     } = data;
 
     const idGenarete = ` WC - ${Math.floor(Math.random() * 1000000 + 1)}`;
-
     const date = new Date();
 
     const finalData = {
@@ -75,7 +73,7 @@ const FormSection = (props) => {
                 type="text"
                 name="destination"
                 placeholder="Enter destination"
-                {...register("destination", { required: false })}
+                {...register("destination", { required: true })}
               />
             </Form.Group>
             <Form.Group className="mb-1" controlId="country">
@@ -86,7 +84,7 @@ const FormSection = (props) => {
                 defaultValue="Bangladesh"
                 placeholder="Enter Country Name"
                 {...register("country", {
-                  required: false,
+                  required: true,
                 })}
               />
             </Form.Group>
@@ -97,7 +95,7 @@ const FormSection = (props) => {
                 name="name"
                 placeholder="Enter Full Name"
                 {...register("name", {
-                  required: false,
+                  required: true,
                 })}
               />
             </Form.Group>
@@ -109,7 +107,7 @@ const FormSection = (props) => {
                     type="date"
                     name="date"
                     placeholder="Enter date from "
-                    {...register("fromDate", { required: false })}
+                    {...register("fromDate", { required: true })}
                     onChange={onSetDate}
                   />
                 </Form.Group>
@@ -123,7 +121,7 @@ const FormSection = (props) => {
                     name="date"
                     value={date?.toLocaleDateString("en-CA")}
                     placeholder="Enter Receive Date to"
-                    {...register("receiveDate", { required: false })}
+                    {...register("receiveDate", { required: true })}
                   />
                 </Form.Group>
               </Col>
@@ -149,7 +147,7 @@ const FormSection = (props) => {
                     type="text"
                     name="passportNo"
                     placeholder="Enter your passport number"
-                    {...register("passportNo", { required: false })}
+                    {...register("passportNo", { required: true })}
                   />
                 </Form.Group>
               </Col>

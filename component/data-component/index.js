@@ -75,7 +75,6 @@ class DataComponent extends React.Component {
               </div>
             </div>
           </div>
-          {/* data */}
           <div className="row">
             <div className="col-3 p-0">
               <div className="bg-secondary bg-opacity-10 p-1 mx-1">
@@ -107,7 +106,6 @@ class DataComponent extends React.Component {
               </div>
             </div>
           </div>
-          {/* data2 */}
           <div className="row">
             <div className=" col-3 p-0">
               <div className="bg-secondary bg-opacity-10 p-1 mx-1">
@@ -140,7 +138,6 @@ class DataComponent extends React.Component {
               </div>
             </div>
           </div>
-          {/* data3 */}
           <div className="row mt-2">
             <div className="col-3 p-0">
               <div className="bg-secondary bg-opacity-10 p-1 m-1">
@@ -161,7 +158,6 @@ class DataComponent extends React.Component {
               </div>
             </div>
           </div>
-          {/* data4 */}
           <div className="row">
             <div className="col-3 p-0">
               <div className="bg-secondary bg-opacity-10 p-1 mx-1">

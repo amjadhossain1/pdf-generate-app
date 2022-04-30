@@ -1,11 +1,9 @@
 import React, { useRef } from "react";
 import ReactToPrint from "react-to-print";
 import DataComponent from "../data-component";
-import { useRouter } from "next/router";
 
 const PdfComponent = (props) => {
   const componentRef = useRef(null);
-  const router = useRouter();
   const { dataRes, setDataRes } = props;
   return (
     <>
